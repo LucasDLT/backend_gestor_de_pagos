@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { PORT } from './env';
 
@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint de prueba
-app.get('/', (_req, res) => {
+app.get('/', (_req: Request, res: Response) => {
   res.send('Servidor funcionando ✅');
 });
 
