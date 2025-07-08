@@ -6,8 +6,11 @@
     "mercadopago": "^2.8.0"
   },
 "scripts": {
-  "start": "nodemon --watch src --exec ts-node src/server.ts"
+  "dev": "nodemon --watch src --exec ts-node src/server.ts", 
+  "build": "tsc",                                           
+  "start": "node dist/server.js"                              
 }
+
 ,
   "devDependencies": {
     "@types/cors": "^2.8.19",
