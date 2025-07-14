@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import mercadopago from "../services/mercadoPago";
 import { Preference } from "mercadopago";
-
+import { MercadoPagoItem } from "../types";
+//averiguar si que cosas lleva el items, para luego tiparlo 
 export const createPreference = async (req: Request, res: Response) => {
   try {
-    const items = req.body.items;
+    const items: MercadoPagoItem[] = req.body.items;
 
     const preference = {
       items,
