@@ -1,8 +1,8 @@
-import  {PRODUCTION_MERCADOPAGO_ACCESS_TOKEN}  from "../env";
+import  {TEST_MERCADOPAGO_ACCESS_TOKEN}  from "../env";
 import {MercadoPagoConfig} from "mercadopago"
 
 const mercadopago = new MercadoPagoConfig({
-    accessToken: PRODUCTION_MERCADOPAGO_ACCESS_TOKEN || ""
+    accessToken: TEST_MERCADOPAGO_ACCESS_TOKEN || ""
 });
 
 export default mercadopago
