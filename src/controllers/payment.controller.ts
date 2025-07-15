@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import mercadopago from "../services/mercadoPago";
 import { Preference } from "mercadopago";
 import { MercadoPagoItem } from "../types";
-//averiguar si que cosas lleva el items, para luego tiparlo 
+
 export const createPreference = async (req: Request, res: Response) => {
   try {
     const items: MercadoPagoItem[] = req.body.items;
@@ -10,11 +10,11 @@ export const createPreference = async (req: Request, res: Response) => {
     const preference = {
       items,
       back_urls: {
-        success: "http://localhost:3001/success",
-        failure: "http://localhost:3001/failure",
-        pending: "http://localhost:3001/pending",
+        success: "https://pagos-dlt.vercel.app/success",
+        failure: "https://pagos-dlt.vercel.app/failure",
+        pending: "https://pagos-dlt.vercel.app/pending",
       },
-     // auto_return: "approved", esta comentada esta parte por que no se puede usar en la version gratuita de mercado pago el localhost. AL DEPLOYAR DESCOMENTAR
+     auto_return: "approved", 
     };
     const preferenceClient = new Preference(mercadopago); 
     const response = await preferenceClient.create({body: preference});
